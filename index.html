@@ -5,8 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giphy GIF Search - Henry Sabio </title>
+    <link rel="stylesheet" href="assets/css/grid.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <section id="search-terms" class="row"></section>
+        <section id="main" class="row">
+            <div id="results" class="col-lg-8 col-md-8 col-sm-8"></div>
+            <div id="search-area" class="col-lg-4 col-md-4 col-sm-4">
+                <label for="search-query"><h3>What kind of GIFs ar eyou searching for?</h3></label>
+                <input type="text" name="search-query" id="search" placeholder="Search Tag Here">
+            </div>
+        </section>
+    </div>    
 </body>
 </html>
