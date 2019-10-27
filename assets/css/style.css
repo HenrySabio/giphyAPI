@@ -60,3 +60,10 @@ h1 {
 	position:relative;
     top:1px;
 }
+ input, select {
+     color: black;
+ }
+
+ textarea:focus, input:focus {
+     color: black;
+ }
