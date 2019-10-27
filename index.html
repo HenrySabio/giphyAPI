@@ -8,24 +8,60 @@
     <title>Giphy GIF Search - Henry Sabio </title>
     <link rel="stylesheet" href="assets/css/grid.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="http://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container">
-        <section id="search-terms" class="row"></section>
-        <section id="main" class="row">
-            <div id="results" class="col-lg-8 col-md-8 col-sm-8"></div>
-            <div id="search-area" class="col-lg-4 col-md-4 col-sm-4">
-                <form class="query-form">
-                    <label for="search-query">
-                        <h3>What kind of GIFs are you searching for?</h3>
-                    </label>
-                    <input type="text" name="search-query" id="search-query" placeholder="Search Tag Here">
-                    <button id="search" type="submit">Submit</button>
-                </form>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 title">
+                <h1>Giphy Search API </h1>
             </div>
-        </section>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Topic Tags</h2>
+                    </div>
+                    <section id="search-terms" class="card-body">
+                    </section>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>GIF Search</h2>
+                    </div>
+                    <p>Enter a topic you're interested in. This will create a magic button that will display related
+                        GIFs from giphy when clicked!</p>
+                    <p>The results will initially be static images, click on the result to animate it & vice verse.</p>
+                    <form class="query-form">
+                        <label for="search-query">
+                            <h3>What topics are you searching for?</h3>
+                        </label>
+                        <input type="text" name="search-query" id="search-query" placeholder="Search Tag Here">
+                        <button id="search" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Search Results</h2>
+                    </div>
+                    <div id="results" class="card-body"></div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
     <script src="assets/js/giphy.js"></script>
 </body>

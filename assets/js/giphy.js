@@ -14,7 +14,6 @@ $("#search").on("click", function (event) {
 
     if ($("#search-query").val().trim() != "") {
         tag = $("#search-query").val().trim();
-        console.log(tag);
         $("#search-query").val("");
         newButton();
     }
@@ -25,11 +24,10 @@ $("#search").on("click", function (event) {
 })
 
 //Begins function upon clicking a search tag
-$("div").on("click", ".search-tag", function () {
-    console.log($(this).text());
-
+$("#search-terms").on("click", ".search-tag", function () {
+    
+    let button = $(this)
     const query = $(this).text();
-    console.log(query);
 
     // API query URL + API key & search variables
     const queryURL = "https://api.giphy.com/v1/gifs/search?q=" + query + "&api_key=" + key + "&limit=10";
@@ -42,23 +40,44 @@ $("div").on("click", ".search-tag", function () {
 
         //After data from ajax get comes back
         .then(function (response) {
-
             console.log(response);
 
             for (let i = 0; i < response.data.length; i++) {
                 //defines variable to hold image url
-            const imageUrl = response.data[i].images.original.url;
+                const imageUrl = response.data[i].images.original.url;
+                const imageStill = response.data[i].images.original_still.url;
+                const imgRating = response.data[i].rating;
 
-            //Create new img element for cat images
-            const searchResultImg = $("<img>");
+                //Create new img element for cat images
+                const searchResultImg = $("<img>");
+                const searchResultRating = $("<p>");
 
-            //Add image url to src link and description to new cat img element
-            searchResultImg.attr("src", imageUrl);
-            searchResultImg.attr("alt", query + " image");
+                //Add image url to src link and description to new cat img element
+                searchResultImg.attr("src", imageStill);
+                searchResultImg.attr("data-alternate-link", imageUrl)
+                searchResultImg.attr("alt", query + " image");
+                searchResultImg.attr("class", "gif");
 
-            //Prepends new gif to beginning of page before all others
-            $("#results").prepend(searchResultImg);
+                searchResultRating.text("This image above is rated: " + imgRating);
+
+                //Prepends new gif to beginning of page before all others
+                $("#results").prepend(searchResultImg);
+                $("#results").prepend(searchResultRating);
+
             }
 
+            //Removes button if the query returned no results
+            if (response.data == '') {
+                alert("No results found - please try a different query")
+                $(button).remove();
+            }
         });
 });
+
+$("#results").on("click", ".gif", function () {
+    let tempA = $(this).attr("src");
+    let tempB = $(this).attr("data-alternate-link");
+
+    $(this).attr("src", tempB);
+    $(this).attr("data-alternate-link", tempA);
+})
