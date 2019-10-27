@@ -10,6 +10,7 @@ function newButton() {
 }
 
 $("#search").on("click", function (event) {
+    void preventDefault();
     event.preventDefault();
 
     if ($("#search-query").val().trim() != "") {
