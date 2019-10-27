@@ -61,7 +61,3 @@ h1 {
 	position:relative;
     top:1px;
 }
-
-#search {
-    pointer-events: none;
-}
