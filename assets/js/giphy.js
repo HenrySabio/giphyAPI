@@ -10,7 +10,8 @@ function newButton() {
 }
 
 $("#search").on("click", function (event) {
-    event.preventDefault()
+    // void preventDefault();
+    event.preventDefault();
 
     if ($("#search-query").val().trim() != "") {
         tag = $("#search-query").val().trim();
@@ -21,8 +22,6 @@ $("#search").on("click", function (event) {
         $("#search-query").val("");
         alert("Please enter a proper query!");
     }
-
-    return false;
 })
 
 //Begins function upon clicking a search tag
