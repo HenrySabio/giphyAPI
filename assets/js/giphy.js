@@ -21,6 +21,8 @@ $("#search").on("click", function (event) {
         $("#search-query").val("");
         alert("Please enter a proper query!");
     }
+
+    return false;
 })
 
 //Begins function upon clicking a search tag
