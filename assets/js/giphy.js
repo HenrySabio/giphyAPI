@@ -58,7 +58,7 @@ $("#search-terms").on("click", ".search-tag", function () {
                 searchResultImg.attr("alt", query + " image");
                 searchResultImg.attr("class", "gif");
 
-                searchResultRating.text("This image above is rated: " + imgRating);
+                searchResultRating.text("This image below is rated: " + imgRating );
 
                 //Prepends new gif to beginning of page before all others
                 $("#results").prepend(searchResultImg);
